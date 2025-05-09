@@ -4,13 +4,15 @@ import headerImg from "../assets/img/james-logo.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
+  const [, setIndex] = useState(1);
   const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
   const period = 2000;
 
@@ -47,8 +49,10 @@ export const Banner = () => {
     }
   }
 
+
   return (
     <section className="banner" id="home">
+      <Router>
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
@@ -58,8 +62,10 @@ export const Banner = () => {
                 {/* <span className="tagline">Hi! Welcome to my Portfolio!</span> */}
                 <h1>{`I'm James Nunieza`} 
                 </h1>
-                  <p>I've been a Web Developer for 4 years and counting. I'm still continuously learning and I'll do my best to learn more. Hit me up if you've got something in mind.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <p>I've been a Web Developer for 4 years and counting. I'm still continuously learning and I'll do my best to learn more. Send me an email if you've got something in mind.</p>
+                  <HashLink to='#connect'>  
+                    <button>Send me an Email<ArrowRightCircle size={25} /></button>
+                  </HashLink>
               </div>}
             </TrackVisibility>
           </Col>
@@ -73,6 +79,7 @@ export const Banner = () => {
           </Col>
         </Row>
       </Container>
+      </Router>
     </section>
   )
 }

@@ -28,6 +28,12 @@ export const Skills = () => {
     }
   };
 
+  const variables = [
+    {src: meter1,title:'Javascript'},
+    {src: meter1,title:'Typescript'},
+    {src: meter1,title:'Javascript'}
+  ]
+
   return (
     <section className="skill" id="skills">
         <div className="container">
@@ -37,22 +43,16 @@ export const Skills = () => {
                         <h2>Skills</h2>
                         <p>These Skills Primarily focus on my General Web Development Skills.</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Javascript</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Typescript</h5>
-                            </div>
-                            {/* <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div> */}
-                            {/* <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div> */}
+                            {
+                              variables.map(({src,title},index)=>{
+                                return (
+                                  <div className="item">
+                                      <img src={src} alt={"Image"+index.toString()} />
+                                      <h5>{title}</h5>
+                                  </div>
+                                )
+                              })
+                            }
                         </Carousel>
                     </div>
                 </div>
